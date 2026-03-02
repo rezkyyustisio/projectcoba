@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
@@ -18,9 +20,25 @@ class UserController extends Controller
         return view('admin.user.index');
     }
 
-    public function datatable()
+    public function datatable(Request $request)
     {
-        
+        $query = User::query();
+
+        return DataTables::of($query)
+
+            ->addIndexColumn()
+
+            ->editColumn('description', function ($row) {
+                return Str::limit($row->description, 50);
+            })
+
+            ->addColumn('action', function ($row) {
+                return view('admin.user.action', compact('row'))->render();
+            })
+
+            ->rawColumns(['action'])
+
+            ->make(true);
     }
 
     public function store(UserRequest $request)
