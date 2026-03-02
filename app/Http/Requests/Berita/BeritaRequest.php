@@ -20,7 +20,7 @@ class BeritaRequest extends FormRequest
             'highlight' => ['required','boolean'],
             'description' => ['required'],
             'tags' => ['required'],
-            'image' => [$id ? 'nullable' : 'required','image','mimes:jpeg,png,jpg,webp','max:2048'],
+            'image' => [$id ? 'nullable' : '','image','mimes:jpeg,png,jpg,webp','max:2048'],
             'created_at' => ['required', 'date'],
         ];
     }
