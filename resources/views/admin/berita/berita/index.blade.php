@@ -3,6 +3,24 @@
         <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
         </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="table">
+                <thead>
+                    <tr>
+                        <th width="3%">#</th>
+                        <th>Time</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Tags</th>
+                        <th>Top</th>
+                        <th>Highlight</th>
+                        <th>Created By</th>
+                        <th width="10%" class="text-center">Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </x-card-component>
 
     @slot('modal')
@@ -85,7 +103,28 @@
                 $(document).on('click', '.remove-tag', function() {
                     $(this).parent().remove();
                 });
+
+
+                $('#table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('admin.berita.berita.datatable') }}",
+                    columns: [
+                        { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'text-center' },
+                        { data: 'created_at', name: 'created_at' },
+                        { data: 'category_name', name: 'category_name' },
+                        { data: 'name', name: 'name' },
+                        { data: 'description', name: 'description' },
+                        { data: 'tags', orderable: false, searchable: false },
+                        { data: 'top', name: 'top', className: 'text-center' },
+                        { data: 'highlight', name: 'highlight', className: 'text-center' },
+                        { data: 'createdBy_name', name: 'createdBy_name' },
+                        { data: 'action', orderable: false, searchable: false, className: 'text-center' }
+                    ],
+                    order: [[1, 'desc']]
+                });
             });
         </script>
+        
     @endpush
 </x-app-layout>
