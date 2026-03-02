@@ -1,5 +1,5 @@
 <x-app-layout title="Berita" subTitle="Tag">
-    <x-card-component col="12" title="Data Tag" :dataTable="$dataTable">
+    <x-card-component col="12" title="Data Tag">
         <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
         </div>

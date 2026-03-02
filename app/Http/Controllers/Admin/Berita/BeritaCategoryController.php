@@ -11,9 +11,14 @@ use Illuminate\Support\Str;
 
 class BeritaCategoryController extends Controller
 {
-    public function index(BeritaCategoryDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('admin.berita.category.index');
+        return view('admin.berita.category.index');
+    }
+
+    public function datatable()
+    {
+        
     }
 
     public function store(BeritaCategoryRequest $request)

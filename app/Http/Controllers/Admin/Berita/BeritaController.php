@@ -15,11 +15,16 @@ use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
-    public function index(BeritaDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('admin.berita.berita.index',[
+        return view('admin.berita.berita.index',[
             'categories' => BeritaCategory::orderBy('name')->get()
         ]);
+    }
+
+    public function datatable()
+    {
+
     }
 
     public function store(BeritaRequest $request)

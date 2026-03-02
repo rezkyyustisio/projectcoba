@@ -11,9 +11,14 @@ use Illuminate\Support\Str;
 
 class BeritaTagController extends Controller
 {
-    public function index(BeritaTagDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('admin.berita.tag.index');
+        return view('admin.berita.tag.index');
+    }
+
+    public function datatable()
+    {
+
     }
 
     public function store(BeritaTagRequest $request)

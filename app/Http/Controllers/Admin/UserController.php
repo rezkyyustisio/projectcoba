@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function index(UserDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('admin.user.index');
+        return view('admin.user.index');
+    }
+
+    public function datatable()
+    {
+        
     }
 
     public function store(UserRequest $request)

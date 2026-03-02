@@ -1,5 +1,5 @@
 <x-app-layout title="Data Master" subTitle="User">
-    <x-card-component col="12" title="Data User" :dataTable="$dataTable">
+    <x-card-component col="12" title="Data User">
         <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-4" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
         </div>
