@@ -23,6 +23,10 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin
         Route::resource('tag', App\Http\Controllers\Admin\Berita\BeritaTagController::class)->only(['index', 'store', 'edit', 'destroy']);
         Route::resource('berita', App\Http\Controllers\Admin\Berita\BeritaController::class)->only(['index', 'store', 'edit', 'destroy']);
     });
+
+    Route::get('berita-tag/datatable', [App\Http\Controllers\Admin\Berita\BeritaTagController::class, 'datatable'])
+    ->name('berita.tag.datatable');
+
     Route::resource('user',App\Http\Controllers\Admin\UserController::class)->only(['index','store','edit','destroy']);
     Route::get('setting', App\Http\Controllers\Admin\SettingController::class . '@index')->name('setting.index');
     Route::post('setting/general', App\Http\Controllers\Admin\SettingController::class . '@general')->name('setting.general');

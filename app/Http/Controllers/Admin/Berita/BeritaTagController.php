@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Berita;
 
-use App\DataTables\Admin\Berita\BeritaTagDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Berita\BeritaTagRequest;
 use App\Models\Berita\BeritaTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class BeritaTagController extends Controller
 {
@@ -16,9 +16,17 @@ class BeritaTagController extends Controller
         return view('admin.berita.tag.index');
     }
 
-    public function datatable()
+    public function datatable(Request $request)
     {
+        $query = BeritaTag::query();
 
+        return DataTables::of($query)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                return view('admin.berita.tag.action', compact('row'))->render();
+            })
+            ->rawColumns(['action']) // penting kalau action berisi HTML
+            ->make(true);
     }
 
     public function store(BeritaTagRequest $request)
