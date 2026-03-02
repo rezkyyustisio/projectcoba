@@ -8,11 +8,11 @@ use App\Models\Berita\BeritaCategory;
 use App\Models\Berita\BeritaTag;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index(){
+        
         $bulanID = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 
         $beritas_per_bulan = collect(range(1,12))

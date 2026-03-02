@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
             'image' => 'images/user/super_admin.png',
         ]);
 
-        $this->call([
-            SettingSeeder::class,
-            Berita\BeritaCategorySeeder::class,
-            Berita\BeritaSeeder::class,
-            Berita\BeritaTagSeeder::class,
-        ]);
+        // $this->call([
+        //     SettingSeeder::class,
+        //     Berita\BeritaCategorySeeder::class,
+        //     Berita\BeritaSeeder::class,
+        //     Berita\BeritaTagSeeder::class,
+        // ]);
     }
 }

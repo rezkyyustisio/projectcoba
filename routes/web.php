@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GenerateBeritaController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', App\Http\Controllers\LandingPageController::class.'@beranda')->name('beranda');
@@ -16,7 +16,7 @@ Route::get('/detail/{slug}', App\Http\Controllers\LandingPageController::class.'
 
 Route::get('/generate-berita', [GenerateBeritaController::class, 'generate'])->name('generate-berita');
 
-Route::middleware(['auth', 'verified'])->prefix('admin')->as('admin.')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin.'] , function() {
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class.'@index')->name('dashboard');
     Route::prefix('berita')->as('berita.')->group(function () {
         Route::resource('category', App\Http\Controllers\Admin\Berita\BeritaCategoryController::class)->only(['index', 'store', 'edit', 'destroy']);
@@ -35,9 +35,12 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->as('admin.')->group(fu
     Route::post('setting/google-ads', App\Http\Controllers\Admin\SettingController::class . '@googleAds')->name('setting.google-ads');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['role:admin'])->group(function () {
     Route::get('/profile', App\Http\Controllers\ProfileController::class . '@edit')->name('profile.edit');
     Route::patch('/profile', App\Http\Controllers\ProfileController::class . '@update')->name('profile.update');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login_proses', [LoginController::class, 'proses'])->name('login.proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
