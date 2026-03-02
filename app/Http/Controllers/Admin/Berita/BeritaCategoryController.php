@@ -8,6 +8,7 @@ use App\Http\Requests\Berita\BeritaCategoryRequest;
 use App\Models\Berita\BeritaCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
 
 class BeritaCategoryController extends Controller
 {
@@ -16,9 +17,17 @@ class BeritaCategoryController extends Controller
         return view('admin.berita.category.index');
     }
 
-    public function datatable()
-    {
-        
+    public function datatable(Request $request)
+{
+        $query = BeritaCategory::query();
+
+        return DataTables::of($query)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                return view('admin.berita.category.action', compact('row'))->render();
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     public function store(BeritaCategoryRequest $request)
