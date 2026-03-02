@@ -98,7 +98,8 @@ class BeritaController extends Controller
         }
 
         Berita::updateOrCreate([
-            'id' => $request->id
+            'id' => $request->id,
+            'created_by' => auth()->id(),
         ], $datas);
 
         return response()->json(['status' => true]);
