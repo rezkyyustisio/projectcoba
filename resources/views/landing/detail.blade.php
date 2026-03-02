@@ -214,7 +214,7 @@
                             </div>
                         </aside>
 
-                        <aside class="wrapper__list__article">
+                        {{-- <aside class="wrapper__list__article">
                             <h4 class="border_section">tags</h4>
                             <div class="blog-tags p-0">
                                 <ul class="list-inline">
@@ -223,7 +223,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        </aside>
+                        </aside> --}}
                     </div>
                 </div>
             </div>
