@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <figure class="text-center">
-                        <img src="{{asset('storage/'.($settings['home_image'] ?? null))}}" alt="Home Image" class="img-fluid" width="100%">
+                        {{-- <img src="{{asset('storage/'.($settings['home_image'] ?? null))}}" alt="Home Image" class="img-fluid" width="100%"> --}}
+                        <img src="{{asset('storage/'.('home_image.png' ?? null))}}" alt="Home Image" class="img-fluid" width="100%">
                     </figure>
                     <hr>
                     <div class="wrapp__list__article-responsive wrapp__list__article-responsive-carousel">

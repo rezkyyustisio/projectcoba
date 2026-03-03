@@ -43,7 +43,9 @@
                 </div>
                 <figure class="mb-0 mx-auto">
                     <a href="{{ route('beranda') }}">
-                        <img src="{{asset('storage/'.($settings['logo_dark'] ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto">
+                        {{-- <img src="{{asset('storage/'.($settings['logo_dark'] ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto"> --}}
+
+                        <img src="{{asset('storage/'.('logo_dark_1772280797.png' ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto">
                     </a>
                 </figure>
 
