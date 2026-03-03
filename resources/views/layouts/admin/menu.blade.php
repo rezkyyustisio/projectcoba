@@ -11,8 +11,8 @@
                         <li class="{{ request()->is('admin/berita/berita') ? 'mm-active' : '' }}"><a href="{{ route('admin.berita.berita.index') }}" key="t-berita">Berita</a></li>
                     </ul>
                 </li>
-                <li class="{{ request()->is('admin/user') ? 'mm-active' : '' }}"><a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="bx bx-group"></i><span key="t-user">User</span></a></li>
-                <li class="{{ request()->is('admin/setting') ? 'mm-active' : '' }}"><a href="{{ route('admin.setting.index') }}" class="waves-effect"><i class="bx bx-cog"></i><span key="t-setting-apps">Setting Apps</span></a></li>
+                <li class="{{ request()->is('admin/user') ? 'mm-active' : '' }}"><a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="bx bx-group"></i><span key="t-user">Pengguna</span></a></li>
+                <li class="{{ request()->is('admin/setting') ? 'mm-active' : '' }}"><a href="{{ route('admin.setting.index') }}" class="waves-effect"><i class="bx bx-cog"></i><span key="t-setting-apps">Pengaturan</span></a></li>
             </ul>
         </div>
     </div>

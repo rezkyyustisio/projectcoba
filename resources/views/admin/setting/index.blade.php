@@ -1,5 +1,5 @@
-<x-app-layout title="Setting" subTitle="Setting">
-    <x-card-component col="12" title="Setting Apps">
+<x-app-layout title="Pengaturan" subTitle="Website">
+    <x-card-component col="12" title="Pengaturan Website">
         <div class="row">
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -20,30 +20,30 @@
                        <form action="{{ route('admin.setting.general') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <x-input-form-component col="6" title="Name" id="name" value="{{ $settings['name'] ?? null }}" />
-                                <x-input-form-component col="6" title="Comapany" id="company" value="{{ $settings['company'] ?? null }}" />
-                                <x-input-form-component col="6" title="Icon Size" id="icon_size" value="{{ $settings['icon_size'] ?? null }}" />
-                                <x-input-form-component col="6" title="Logo Size" id="logo_size" value="{{ $settings['logo_size'] ?? null }}" />
+                                <x-input-form-component col="6" title="Nama" id="name" value="{{ $settings['name'] ?? null }}" />
+                                <x-input-form-component col="6" title="Nama Perusahaan" id="company" value="{{ $settings['company'] ?? null }}" />
+                                <x-input-form-component col="6" title="Ukuran Icon" id="icon_size" value="{{ $settings['icon_size'] ?? null }}" />
+                                <x-input-form-component col="6" title="Ukuran Logo" id="logo_size" value="{{ $settings['logo_size'] ?? null }}" />
                                 <x-input-form-component col="6" title="Header" type="color" id="header" value="{{ $settings['header'] ?? null }}" />
-                                <x-input-form-component col="6" title="Theme" type="color" id="theme" value="{{ $settings['theme'] ?? null }}" />
-                                <x-input-form-component col="6" title="Icon Light" type="file" id="icon_light" />
-                                <x-input-form-component col="6" title="Icon Dark" type="file" id="icon_dark" />
+                                <x-input-form-component col="6" title="Tema" type="color" id="theme" value="{{ $settings['theme'] ?? null }}" />
+                                <x-input-form-component col="6" title="Logo Mobile" type="file" id="icon_light" />
+                                {{-- <x-input-form-component col="6" title="Icon Dark" type="file" id="icon_dark" /> --}}
                                 <div class="col-md-6 mb-3">
                                     <img src="{{ asset('storage/'.($settings['icon_light'] ?? null)) }}" height="50px" alt="">
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                {{-- <div class="col-md-6 mb-3">
                                     <img src="{{ asset('storage/'.($settings['icon_dark'] ?? null)) }}" height="50px" alt="">
-                                </div>
+                                </div> --}}
 
-                                <x-input-form-component col="6" title="Logo Light" type="file" id="logo_light" />
-                                <x-input-form-component col="6" title="Logo Dark" type="file" id="logo_dark" />
+                                <x-input-form-component col="6" title="Logo Desktop" type="file" id="logo_light" />
+                                {{-- <x-input-form-component col="6" title="Logo Dark" type="file" id="logo_dark" /> --}}
                                 <div class="col-md-6 mb-3">
                                     <img src="{{ asset('storage/'.($settings['logo_light'] ?? null)) }}" height="50px" alt="">
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                {{-- <div class="col-md-6 mb-3">
                                     <img src="{{ asset('storage/'.($settings['logo_dark'] ?? null)) }}" height="50px" alt="">
-                                </div>
-                                <x-input-form-component col="6" title="Home Image" type="file" id="home_image" />
+                                </div> --}}
+                                <x-input-form-component col="6" title="Billboard" type="file" id="home_image" />
                                 <div class="col-md-6 mb-3"></div>
                                 <div class="col-md-6 mb-3">
                                     <img src="{{ asset('storage/'.($settings['home_image'] ?? null)) }}" height="50px" alt="">

@@ -2,7 +2,7 @@
     <script>
         function edit(id) {
             $('#form')[0].reset();
-            $('.modal-title').text('Edit Berita Category');
+            $('.modal-title').text('Edit Kategori');
             var url = "{{ route('admin.berita.category.edit',":id") }}";
             url     = url.replace(':id', id);
             $.get(url, function (data) {

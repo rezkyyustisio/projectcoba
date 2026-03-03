@@ -109,7 +109,7 @@
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
                                         <span>
-                                            Copyright © {{ date('Y') }} {{ $settings['company'] ?? null }} | Design by PT The Day Website
+                                            © {{ date('Y') }} {{ $settings['company'] ?? null }}. All Rights Reserved 
                                         </span>
                                     </li>
                                 </ul>

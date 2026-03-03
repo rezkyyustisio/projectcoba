@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <p>{{ date('Y') }} © {{ $settings['company'] ?? null }}</p>
+                <p>Dikelola Oleh TIM IT PONTIANAK KERAS</p>
             </div>
         </div>
     </div>

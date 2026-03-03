@@ -1,15 +1,19 @@
-<x-app-layout title="Berita" subTitle="Category">
-    <x-card-component col="12" title="Data Category">
+<x-app-layout title="Berita" subTitle="Kategori">
+    <x-card-component col="12" title="Data Kategori">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
+            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Tambah</button>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered" id="table">
                 <thead>
                     <tr>
-                        <th width="5%">#</th>
-                        <th>Name</th>
-                        <th width="15%" class="text-center">Action</th>
+                        <th width="1%">#</th>
+                        <th width="5%">Nama</th>
+                        <th width="5%" class="text-center">
+                            <div style="width: 100%; text-align: right; padding-right: 80px;">
+                                Aksi
+                            </div>
+                        </th>
                     </tr>
                 </thead>
             </table>
@@ -21,7 +25,7 @@
             <form id="form">
                 <div class="row">
                     <input type="hidden" id="id" name="id">
-                    <x-input-form-component col="12" title="Name" id="name" />
+                    <x-input-form-component col="12" title="Nama Kategori" id="name" />
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-dark" id="btncreate">Save</button>

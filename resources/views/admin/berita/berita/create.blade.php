@@ -1,10 +1,24 @@
+@push('css')
+    <style>
+        .tox-statusbar__branding a {
+            display: none !important;
+        }
+    </style>
+@endpush
+
 @push('js')
     <script>
         function create(){
             $('#modal-create').modal('show');
-            $('.modal-title').text('Create Berita');
+            $('.modal-title').text('Tambah Berita');
             $('#id').val(null);
             $('.select2').val(null).change();
+            // $('#highlight').select2({
+            //     placeHolder: "Pilih Highlight",
+            // });
+            // $('#top').select2({
+            //     placeHolder: "Pilih Top",
+            // });
             $('#form')[0].reset();
             $('#tag-container').empty();
         }

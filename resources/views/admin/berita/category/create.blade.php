@@ -2,7 +2,7 @@
     <script>
         function create(){
             $('#modal-create').modal('show');
-            $('.modal-title').text('Create Berita Category');
+            $('.modal-title').text('Tambah Kategori');
             $('#id').val(null);
             $('#form')[0].reset();
         }

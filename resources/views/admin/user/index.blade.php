@@ -1,7 +1,7 @@
-<x-app-layout title="Data Master" subTitle="User">
-    <x-card-component col="12" title="Data User">
+<x-app-layout title="Data Master" subTitle="Pengguna">
+    <x-card-component col="12" title="Data Pengguna">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-4" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
+            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-4" onclick="create()"><i class="bx bx-plus label-icon"></i> Tambah</button>
         </div>
 
         <div class="table-responsive">
@@ -11,13 +11,13 @@
                         <th width="3%">#</th>
                         <th>Nama Lengkap</th>
                         <th>Email</th>
-                        <th>Description</th>
-                        <th>Facebook</th>
-                        <th>X / Twitter</th>
+                        {{-- <th>Alamat</th> --}}
+                        {{-- <th>Facebook</th>
+                        <th>X / Twitter</th> --}}
                         <th>Instagram</th>
-                        <th>Telegram</th>
-                        <th>LinkedIn</th>
-                        <th width="10%" class="text-center">Action</th>
+                        {{-- <th>Telegram</th>
+                        <th>LinkedIn</th> --}}
+                        <th width="10%" class="text-center">Aksi</th>
                     </tr>
                 </thead>
             </table>
@@ -61,12 +61,12 @@
                     { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'text-center' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
-                    { data: 'description', name: 'description' },
-                    { data: 'facebook', name: 'facebook' },
-                    { data: 'x', name: 'x' },
+                    // { data: 'description', name: 'description' },
+                    // { data: 'facebook', name: 'facebook' },
+                    // { data: 'x', name: 'x' },
                     { data: 'instagram', name: 'instagram' },
-                    { data: 'telegram', name: 'telegram' },
-                    { data: 'linked_in', name: 'linked_in' },
+                    // { data: 'telegram', name: 'telegram' },
+                    // { data: 'linked_in', name: 'linked_in' },
                     { data: 'action', orderable: false, searchable: false, className: 'text-center' }
                 ],
                 order: [[1, 'asc']]

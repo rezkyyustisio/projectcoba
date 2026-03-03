@@ -1,22 +1,22 @@
 <x-app-layout title="Berita" subTitle="Berita">
     <x-card-component col="12" title="Data Berita">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Create</button>
+            <button type="button" class="btn btn-dark waves-effect btn-label waves-light mb-2" onclick="create()"><i class="bx bx-plus label-icon"></i> Tambah</button>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered" id="table">
                 <thead>
                     <tr>
                         <th width="3%">#</th>
-                        <th>Time</th>
-                        <th>Category</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Tags</th>
-                        <th>Top</th>
-                        <th>Highlight</th>
-                        <th>Created By</th>
-                        <th width="10%" class="text-center">Action</th>
+                        <th width="30%">Judul Berita</th>
+                        <th width="9%">Kategori</th>
+                        <th width="11%">Tanggal Publish</th>
+                        {{-- <th>Description</th> --}}
+                        {{-- <th>Tags</th> --}}
+                        {{-- <th>Top</th>
+                        <th>Sorotan</th> --}}
+                        <th width="10%">Penulis</th>
+                        <th width="15%" class="text-center">Aksi</th>
                     </tr>
                 </thead>
             </table>
@@ -28,18 +28,18 @@
             <form id="form">
                 <div class="row">
                     <input type="hidden" id="id" name="id">
-                    <x-input-form-component col="6" title="Category" type="drop-down" id="category_id" :options="$categories" />
-                    <x-input-form-component col="6" title="Name" id="name"/>
-                    <x-input-form-component col="6" title="Top" type="choose" id="top">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <x-input-form-component col="12" title="Judul Berita" id="name"/>
+                    <x-input-form-component col="6" title="Kategori" type="drop-down" id="category_id" :options="$categories" />
+                    {{-- <x-input-form-component col="6" title="Top" type="choose" id="top">
+                        <option value="1">Ya</option>
+                        <option value="0">Tidak</option>
                     </x-input-form-component>
                     <x-input-form-component col="6" title="Highlight" type="choose" id="highlight">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </x-input-form-component>
-                    <x-input-form-component col="6" title="Image" type="file" id="image"/>
-                    <x-input-form-component col="6" title="Time" type="datetime-local" id="created_at" />
+                        <option value="1">Ya</option>
+                        <option value="0">Tidak</option>
+                    </x-input-form-component> --}}
+                    <x-input-form-component col="6" title="Gambar Depan" type="file" id="image"/>
+                    <x-input-form-component col="6" title="Tanggal Publish" type="datetime-local" id="created_at" />
                     <div class="col-md-6">
                         <div class="mb-3 row">
                             <label class="col-md-4 col-form-label">Tag <span class="text-danger">*</span></label>
@@ -53,11 +53,11 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 mb-2 mt-0" id="tag-container"></div>
                     <input type="hidden" id="tags" name="tags">
-                    <x-input-form-component col="12" title="Description" type="text-editor" id="description" />
+                    <x-input-form-component col="12" title="Deskripsi" type="text-editor" id="description" />
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-dark" id="btncreate">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-dark" id="btncreate">Simpan</button>
                     </div>
                 </div>
             </form>
@@ -111,18 +111,28 @@
                     ajax: "{{ route('admin.berita.berita.datatable') }}",
                     columns: [
                         { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'text-center' },
-                        { data: 'created_at', name: 'created_at' },
-                        { data: 'category_name', name: 'category_name' },
                         { data: 'name', name: 'name' },
-                        { data: 'description', name: 'description' },
-                        { data: 'tags', orderable: false, searchable: false },
-                        { data: 'top', name: 'top', className: 'text-center' },
-                        { data: 'highlight', name: 'highlight', className: 'text-center' },
+                        { data: 'category_name', name: 'category_name' },
+                        { data: 'created_at', name: 'created_at' },
+                        // { data: 'description', name: 'description' },
+                        // { data: 'tags', orderable: false, searchable: false },
+                        // { data: 'top', name: 'top', className: 'text-center' },
+                        // { data: 'highlight', name: 'highlight', className: 'text-center' },
                         { data: 'createdBy_name', name: 'createdBy_name' },
                         { data: 'action', orderable: false, searchable: false, className: 'text-center' }
                     ],
                     order: [[1, 'desc']]
                 });
+            });
+
+            $('#modal-create #highlight').select2({
+                placeholder: "Pilih Highlight",
+                dropdownParent: $('#modal-create')
+            });
+
+            $('#modal-create #top').select2({
+                placeholder: "Pilih Top",
+                dropdownParent: $('#modal-create')
             });
         </script>
         

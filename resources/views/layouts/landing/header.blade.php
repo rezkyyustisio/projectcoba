@@ -42,11 +42,19 @@
                     </div>
                 </div>
                 <figure class="mb-0 mx-auto">
-                    <a href="{{ route('beranda') }}">
-                        {{-- <img src="{{asset('storage/'.($settings['logo_dark'] ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto"> --}}
+                    @if(auth()->check())
+                        <a href="{{ route('admin.dashboard') }}">
+                            {{-- <img src="{{asset('storage/'.($settings['logo_dark'] ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto"> --}}
 
-                        <img src="{{asset('storage/'.('logo_dark_1772280797.png' ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="width: 150px;" height="auto">
-                    </a>
+                            <img src="{{asset('storage/'.('logo_dark_1772280797.png' ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="width: 120px;" height="auto">
+                        </a>
+                    @else
+                        <a href="{{ route('beranda') }}">
+                            {{-- <img src="{{asset('storage/'.($settings['logo_dark'] ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="max-height: 40px; max-width:200px" width="auto" height="auto"> --}}
+
+                            <img src="{{asset('storage/'.('logo_dark_1772280797.png' ?? null))}}" alt="{{ $settings['name'] ?? null }}" class="img-fluid logo" style="width: 120px;" height="auto">
+                        </a>
+                    @endif
                 </figure>
 
                 <div class="collapse navbar-collapse justify-content-between" id="main_nav99">

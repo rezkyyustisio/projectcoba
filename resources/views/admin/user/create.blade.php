@@ -2,7 +2,7 @@
     <script>
         function create(){
             $('#modal-create').modal('show');
-            $('.modal-title').text('Create User');
+            $('.modal-title').text('Tambah Pengguna');
             $('#id').val(null);
             $('#form')[0].reset();
         }

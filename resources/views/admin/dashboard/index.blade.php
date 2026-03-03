@@ -5,8 +5,8 @@
                 <div class="row">
                     <div class="col-7">
                         <div class="text-dark p-3">
-                            <h5 class="text-dark">Welcome Back !</h5>
-                            <p>Dashboard {{ $settings['company'] ?? null }}</p>
+                            <h5 class="text-dark">Selamat Datang</h5>
+                            <p>{{ $settings['company'] ?? null }}</p>
                         </div>
                     </div>
                     <div class="col-5 align-self-end">
@@ -28,8 +28,8 @@
                         <div class="pt-4">
                             <div class="mt-4">
                                 <a href="{{ route('profile.edit') }}"
-                                    class="btn btn-dark waves-effect waves-light btn-sm">View
-                                    Profile <i class="mdi mdi-arrow-right ms-1"></i></a>
+                                    class="btn btn-dark waves-effect waves-light btn-sm">Lihat
+                                    Profil <i class="mdi mdi-arrow-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Users</p>
+                                <p class="text-muted fw-medium">Pengguna</p>
                                 <h4 class="mb-0">{{ number_format($users->count(),0,',','.') }}</h4>
                             </div>
 
@@ -85,7 +85,7 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Tags</p>
+                                <p class="text-muted fw-medium">Tag</p>
                                 <h4 class="mb-0">{{ number_format($tags->count(),0,',','.') }}</h4>
                             </div>
 
@@ -105,7 +105,7 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Category</p>
+                                <p class="text-muted fw-medium">Kategori</p>
                                 <h4 class="mb-0">{{ number_format($categories->count(),0,',','.') }}</h4>
                             </div>
 

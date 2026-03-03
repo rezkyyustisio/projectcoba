@@ -1,3 +1,4 @@
+<div style="width: 100%; text-align: right;">
 <button type="button"
     class="btn btn-dark waves-effect btn-label waves-light"
     onclick="edit('{{ $row->id }}')">
@@ -9,5 +10,6 @@
     data-tableid="table"
     data-action="Delete"
     data-url="{{ route('admin.berita.category.destroy', $row->id) }}">
-    <i class="bx bx-trash label-icon"></i> Delete
+    <i class="bx bx-trash label-icon"></i> Hapus
 </button>
+</div>

@@ -2,7 +2,7 @@
     <div class="navbar-header">
         <div class="d-flex">
             <div class="navbar-brand-box" style="background: {{ ($settings['header'] ?? null) }}">
-                <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
+                <a href="{{ route('beranda') }}" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ asset('storage/'.($settings['icon_dark'] ?? null))}}"
                             alt="Icon {{ $settings['name'] ?? null }}" height="{{ $settings['icon_size'] ?? null }}">
@@ -13,7 +13,7 @@
                     </span>
                 </a>
 
-                <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
+                <a href="{{ route('beranda') }}" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{ asset('storage/'.($settings['icon_light'] ?? null))}}"
                             alt="Icon {{ $settings['name'] ?? null }}" height="{{ $settings['icon_size'] ?? null }}">

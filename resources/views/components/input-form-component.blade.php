@@ -51,7 +51,7 @@
             <label class="col-md-4 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
             <div class="col-md-8">
                 <select name="{{ $name ?? $id }}" id="{{ $id }}" class="form-control {{ $filter ? 'select-filter' : 'select2' }}" style="width: 100%;">
-                    <option value="" selected hidden disabled>==Select {{ $title }}==</option>
+                    <option value="" selected hidden disabled>Pilih {{ $title }}</option>
                     {{ $slot }}
                     @foreach($options as $option)
                         <option value="{{ $option->id }}" @selected(request($name ?? 'null') == $option->id)>{{ $option->name }}</option>
@@ -75,12 +75,23 @@
         </div>
     </div>
 @else
-    <div class="col-md-{{ $col }}">
-        <div class="mb-3 row">
-            <label for="example-text-input" class="col-md-4 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
-            <div class="col-md-8">
-                <input type="{{ $type }}" step="{{ $step }}" class="form-control {{ $type == 'file' ? null : 'max-length' }}" @if($type != 'file') maxlength="{{ $max }}" @endif name="{{$name ?? $id }}" id="{{ $id }}" value="{{ $value }}" {{ $readonly ? 'readonly' : null }} {{ $multiple ? 'multiple' : null }}>
+    @if($title == 'Judul Berita')
+         <div class="col-md-{{ $col }}">
+            <div class="mb-3 row">
+                <label for="example-text-input" class="col-md-2 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
+                <div class="col-md-10">
+                    <input type="{{ $type }}" step="{{ $step }}" class="form-control {{ $type == 'file' ? null : 'max-length' }}" @if($type != 'file') maxlength="{{ $max }}" @endif name="{{$name ?? $id }}" id="{{ $id }}" value="{{ $value }}" {{ $readonly ? 'readonly' : null }} {{ $multiple ? 'multiple' : null }}>
+                </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="col-md-{{ $col }}">
+            <div class="mb-3 row">
+                <label for="example-text-input" class="col-md-4 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
+                <div class="col-md-8">
+                    <input type="{{ $type }}" step="{{ $step }}" class="form-control {{ $type == 'file' ? null : 'max-length' }}" @if($type != 'file') maxlength="{{ $max }}" @endif name="{{$name ?? $id }}" id="{{ $id }}" value="{{ $value }}" {{ $readonly ? 'readonly' : null }} {{ $multiple ? 'multiple' : null }}>
+                </div>
+            </div>
+        </div>
+    @endif
 @endif

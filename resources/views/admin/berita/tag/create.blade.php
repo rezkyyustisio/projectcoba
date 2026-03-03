@@ -2,7 +2,7 @@
     <script>
         function create(){
             $('#modal-create').modal('show');
-            $('.modal-title').text('Create Berita Tag');
+            $('.modal-title').text('Tambah Tag');
             $('#id').val(null);
             $('#form')[0].reset();
         }

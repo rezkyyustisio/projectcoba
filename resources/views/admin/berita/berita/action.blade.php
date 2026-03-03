@@ -8,5 +8,5 @@
     class="btn btn-danger btn-sm delete-item"
     data-tableid="table"
     data-url="{{ route('admin.berita.berita.destroy', $row->id) }}">
-    Delete
+    Hapus
 </button>
