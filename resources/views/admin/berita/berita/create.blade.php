@@ -35,6 +35,8 @@
 
             $('#tags').val(tags.join(','));
 
+            console.log($('#tags').val());
+
             console.log(tags);
             $.ajax({
                 url: "{{ route('admin.berita.berita.store') }}",

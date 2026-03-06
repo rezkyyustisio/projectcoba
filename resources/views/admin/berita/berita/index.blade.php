@@ -28,7 +28,7 @@
             <form id="form">
                 <div class="row">
                     <input type="hidden" id="id" name="id">
-                    <x-input-form-component col="12" title="Judul Berita" id="name"/>
+                    <x-input-form-component col="12" autocomplete="off" title="Judul Berita" id="name"/>
                     <x-input-form-component col="6" title="Kategori" type="drop-down" id="category_id" :options="$categories" />
                     {{-- <x-input-form-component col="6" title="Top" type="choose" id="top">
                         <option value="1">Ya</option>
@@ -48,7 +48,7 @@
                         <div class="mb-3 row">
                             <label class="col-md-4 col-form-label">Tag <span class="text-danger">*</span></label>
                             <div class="col-md-6">
-                                <input type="text" id="tag-input" class="form-control" />
+                                <input type="text" autocomplete="off" id="tag-input" class="form-control" />
                             </div>
                             <button class="btn btn-dark col-md-2" type="button" id="add-tag-btn">+</button>
                         </div>

@@ -16,8 +16,8 @@ class BeritaRequest extends FormRequest
         return [
             'category_id' => ['required'],
             'name' => ['required','string','max:255'],
-            'top' => ['required','boolean'],
-            'highlight' => ['required','boolean'],
+            'top' => ['boolean'],
+            'highlight' => ['boolean'],
             'description' => ['required'],
             'tags' => ['required'],
             'image' => [$id ? 'nullable' : '','image','mimes:jpeg,png,jpg,webp','max:2048'],
