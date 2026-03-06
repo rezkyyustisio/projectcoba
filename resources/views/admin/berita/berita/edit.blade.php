@@ -20,6 +20,9 @@
                         $('#tag-container').append('<div class="tag bg-primary bg-soft text-primary">' + tag + '<span class="remove-tag"><i class="fas fa-times"></i></span></div>');
                     });
                 }
+
+                let url_image = "{{ asset('storage/') }}/" + data.data.image;
+                $('#modal-create #fotoPreview').attr('src', url_image);
                 $('#modal-create').modal('show');
             });
         }
