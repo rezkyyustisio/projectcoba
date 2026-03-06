@@ -210,22 +210,4 @@
             });
         </script>
     @endpush
-
-    @push('css')
-        <style>
-            .navbar-collapse {
-                justify-content: flex-start !important;
-            }
-
-            .navbar-nav.ml-auto {
-                margin-left: 130px !important;
-                margin-right: auto;
-            }
-
-            /* Atur posisi icon search */
-            .navbar-nav:last-child {
-                margin-left: 15px;
-            }
-        </style>
-    @endpush
 </x-app-landing-layout>

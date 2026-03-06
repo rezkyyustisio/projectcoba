@@ -298,8 +298,6 @@
                 transform: none !important;
                 transition: none !important;
             }
-
-
         </style>
     @endpush
 </x-app-landing-layout>
