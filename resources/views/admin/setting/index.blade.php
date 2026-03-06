@@ -3,8 +3,15 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link mb-2 active bg-dark" id="v-general-tab" data-bs-toggle="pill" href="#v-general" role="tab" aria-controls="v-general" aria-selected="true">General</a>
-                    <a class="nav-link mb-2" id="v-contact-tab" data-bs-toggle="pill" href="#v-contact" role="tab" aria-controls="v-contact" aria-selected="true">Contact</a>
+                    <a class="nav-link mb-2 active bg-dark" id="v-general-tab" data-bs-toggle="pill" href="#v-general" role="tab" aria-controls="v-general" aria-selected="true">Umum</a>
+
+                    <a class="nav-link mb-2" id="v-tentang-kami-tab" data-bs-toggle="pill" href="#v-tentang-kami" role="tab" aria-controls="v-tentang-kami" aria-selected="true">Tentang Kami</a>
+                    <a class="nav-link mb-2" id="v-syarat-ketentuan-tab" data-bs-toggle="pill" href="#v-syarat-ketentuan" role="tab" aria-controls="v-syarat-ketentuan" aria-selected="true">Syarat Ketentuan</a>
+                    <a class="nav-link mb-2" id="v-layanan-tab" data-bs-toggle="pill" href="#v-layanan" role="tab" aria-controls="v-layanan" aria-selected="true">Layanan</a>
+                    <a class="nav-link mb-2" id="v-kerja-sama-tab" data-bs-toggle="pill" href="#v-kerja-sama" role="tab" aria-controls="v-kerja-sama" aria-selected="true">Kerja Sama</a>
+                    <a class="nav-link mb-2" id="v-disclaimer-tab" data-bs-toggle="pill" href="#v-disclaimer" role="tab" aria-controls="v-disclaimer" aria-selected="true">Disclaimer</a>
+
+                    <a class="nav-link mb-2" id="v-contact-tab" data-bs-toggle="pill" href="#v-contact" role="tab" aria-controls="v-contact" aria-selected="true">Kontak</a>
                     <a class="nav-link mb-2" id="v-sosmed-tab" data-bs-toggle="pill" href="#v-sosmed" role="tab" aria-controls="v-sosmed" aria-selected="true">Sosmed</a>
                     <a class="nav-link mb-2" id="v-redaksi-tab" data-bs-toggle="pill" href="#v-redaksi" role="tab" aria-controls="v-redaksi" aria-selected="true">Redaksi</a>
                     <a class="nav-link mb-2" id="v-kode-tab" data-bs-toggle="pill" href="#v-kode" role="tab" aria-controls="v-kode" aria-selected="true">Kode Etik</a>

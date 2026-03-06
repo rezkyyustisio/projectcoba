@@ -32,26 +32,46 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         if($request->image){
-            $user->image = storeImage($request, 'image', 'User');
+            $datas['image'] = storeImage($request, 'image', 'User', $user->image);
+            $user->image = $datas['image'];
         }
         $user->save();
 
         return back()->with('success', 'Update Profile Successfully');
     }
 
-public function destroy(Request $request): RedirectResponse
-{
-    $inputPassword = $request->input('password');
-    $hashedPassword = Auth::user()->password;
-    if (Hash::check($inputPassword, $hashedPassword)) {
-        $user = User::find(Auth::user()->id);
-        $user->delete();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return Redirect::to('/');
+    public function destroy(Request $request): RedirectResponse
+    {
+        $inputPassword = $request->input('password');
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($inputPassword, $hashedPassword)) {
+            $user = User::find(Auth::user()->id);
+            $user->delete();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return Redirect::to('/');
+        }
+
+        return back()->withErrors(['password' => 'The provided password is incorrect.']);
     }
 
-    return back()->withErrors(['password' => 'The provided password is incorrect.']);
-}
+    public function updatePassword(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return back()->with('success', 'Password updated successfully');
+    }
 
 }

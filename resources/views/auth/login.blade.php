@@ -145,13 +145,13 @@
             <label for="email">Email</label>
             <div class="input-group">
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                <input autocomplete="off" type="email" id="email" name="email" placeholder="Masukkan Email" required autocomplete="username" aria-describedby="emailHelp" aria-label="Email" />
+                <input autocomplete="off" type="email" id="email" name="email" placeholder="Masukkan Email" required autocomplete="username" aria-describedby="emailHelp" style="background-color: transparent;" aria-label="Email" />
             </div>
 
             <label for="password">Kata Sandi</label>
             <div class="input-group">
                 <i class="fa-solid fa-lock" aria-hidden="true"></i>
-                <input autocomplete="off" type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" required autocomplete="current-password" aria-label="Kata Sandi" />
+                <input autocomplete="off" type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" style="background-color: transparent;" required autocomplete="current-password" aria-label="Kata Sandi" />
             </div>
 
             <button type="submit" aria-label="Masuk">

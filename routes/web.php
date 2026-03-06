@@ -18,6 +18,7 @@ Route::get('/generate-berita', [GenerateBeritaController::class, 'generate'])->n
 
 Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin.'] , function() {
     Route::get('/dashboard', App\Http\Controllers\Admin\DashboardController::class.'@index')->name('dashboard');
+    Route::post('/user/password-update', App\Http\Controllers\ProfileController::class.'@updatePassword')->name('password.update');
     Route::prefix('berita')->as('berita.')->group(function () {
         Route::resource('category', App\Http\Controllers\Admin\Berita\BeritaCategoryController::class)->only(['index', 'store', 'edit', 'destroy']);
         Route::resource('tag', App\Http\Controllers\Admin\Berita\BeritaTagController::class)->only(['index', 'store', 'edit', 'destroy']);

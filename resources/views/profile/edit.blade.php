@@ -1,5 +1,5 @@
-<x-app-layout title="Profile" subTitle="Profile">
-    <x-card-component col="12" title="Profile">
+<x-app-layout title="Profil" subTitle="Profil">
+    <x-card-component col="12" title="Profil">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <img src="{{ Auth::user()->image ? asset('storage/'.Auth::user()->image) : 'https://ui-avatars.com/api/?background=0D8ABC&color=FFF&name=' . str_replace(' ', '+', Auth::user()->name) }}" style="width: 100%" class="img-fluid" alt="Responsive image">
@@ -32,12 +32,4 @@
             </div>
         </div>
     </x-card-component>
-
-    @push('css')
-        <style>
-            a:hover{
-                color: black !important;
-            }
-        </style>
-    @endpush
 </x-app-layout>
