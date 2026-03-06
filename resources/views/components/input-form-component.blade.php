@@ -80,7 +80,18 @@
             <div class="mb-3 row">
                 <label for="example-text-input" class="col-md-2 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
                 <div class="col-md-10">
-                    <input type="{{ $type }}" step="{{ $step }}" class="form-control {{ $type == 'file' ? null : 'max-length' }}" @if($type != 'file') maxlength="{{ $max }}" @endif name="{{$name ?? $id }}" id="{{ $id }}" value="{{ $value }}" {{ $readonly ? 'readonly' : null }} {{ $multiple ? 'multiple' : null }}>
+                    <input 
+                        type="{{ $type }}" 
+                        step="{{ $step }}" 
+                        class="form-control {{ $type == 'file' ? null : 'max-length' }}" 
+                        @if($type != 'file') maxlength="{{ $max }}" @endif 
+                        name="{{$name ?? $id }}" 
+                        id="{{ $id }}" 
+                        value="{{ $value }}" 
+                        {{ $readonly ? 'readonly' : null }} 
+                        {{ $multiple ? 'multiple' : null }}
+                        {{ $attributes }}  {{-- INI YANG DITAMBAHKAN --}}
+                    />
                 </div>
             </div>
         </div>
@@ -89,7 +100,18 @@
             <div class="mb-3 row">
                 <label for="example-text-input" class="col-md-4 col-form-label">{{ $title }} {!! $required ? null : '<span class="text-danger">*</span>' !!}</label>
                 <div class="col-md-8">
-                    <input type="{{ $type }}" step="{{ $step }}" class="form-control {{ $type == 'file' ? null : 'max-length' }}" @if($type != 'file') maxlength="{{ $max }}" @endif name="{{$name ?? $id }}" id="{{ $id }}" value="{{ $value }}" {{ $readonly ? 'readonly' : null }} {{ $multiple ? 'multiple' : null }}>
+                    <input 
+                        type="{{ $type }}" 
+                        step="{{ $step }}" 
+                        class="form-control {{ $type == 'file' ? null : 'max-length' }}" 
+                        @if($type != 'file') maxlength="{{ $max }}" @endif 
+                        name="{{$name ?? $id }}" 
+                        id="{{ $id }}" 
+                        value="{{ $value }}" 
+                        {{ $readonly ? 'readonly' : null }} 
+                        {{ $multiple ? 'multiple' : null }}
+                        {{ $attributes }}  {{-- INI YANG DITAMBAHKAN --}}
+                    />
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <div style="width: 100%; text-align: right;">
 <button type="button"
-    class="btn btn-dark waves-effect btn-label waves-light"
+    class="btn btn-secondary waves-effect btn-label waves-light"
     onclick="edit('{{ $row->id }}')">
     <i class="bx bx-pencil label-icon"></i> Edit
 </button>

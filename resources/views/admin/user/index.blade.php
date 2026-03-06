@@ -57,6 +57,24 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.user.datatable') }}",
+                language: {
+                    "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                    "zeroRecords": "Data tidak ditemukan",
+                    "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Data tidak tersedia",
+                    "infoFiltered": "(difilter dari _MAX_ total data)",
+                    "search": "Cari:",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Selanjutnya",
+                        "previous": "Sebelumnya"
+                    },
+                    "aria": {
+                        "sortAscending": ": aktifkan untuk mengurutkan kolom ascending",
+                        "sortDescending": ": aktifkan untuk mengurutkan kolom descending"
+                    }
+                },
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'text-center' },
                     { data: 'name', name: 'name' },
@@ -72,5 +90,25 @@
                 order: [[1, 'asc']]
             });
         </script>
+    @endpush
+
+    @push('css')
+        <style>
+            .btn-secondary {
+                background-color: #34383a !important;
+            }
+
+            .btn-secondary:hover {
+                background-color: #37393a !important;
+            }
+
+            .btn-dark {
+                background-color: #111213 !important;
+            }
+
+            .btn-dark:hover {
+                background-color: #212325 !important;
+            }
+        </style>
     @endpush
 </x-app-layout>

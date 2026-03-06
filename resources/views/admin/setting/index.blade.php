@@ -248,4 +248,24 @@
             });
         </script>
     @endpush
+
+    @push('css')
+        <style>
+            .btn-secondary {
+                background-color: #34383a !important;
+            }
+
+            .btn-secondary:hover {
+                background-color: #37393a !important;
+            }
+
+            .btn-dark {
+                background-color: #111213 !important;
+            }
+
+            .btn-dark:hover {
+                background-color: #212325 !important;
+            }
+        </style>
+    @endpush
 </x-app-layout>

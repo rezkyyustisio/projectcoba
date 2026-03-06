@@ -38,8 +38,12 @@
                         <option value="1">Ya</option>
                         <option value="0">Tidak</option>
                     </x-input-form-component> --}}
-                    <x-input-form-component col="6" title="Gambar Depan" type="file" id="image"/>
+                    <x-input-form-component col="6" title="Gambar Depan" type="file" id="image" onchange="preview_foto(this)"/>
                     <x-input-form-component col="6" title="Tanggal Publish" type="datetime-local" id="created_at" />
+                    <div class="col-md-6">
+                        <label for="">Preview Gambar Depan</label> <br>
+                        <img id="fotoPreview" alt="Foto Berita" width="150px">
+                    </div>
                     <div class="col-md-6">
                         <div class="mb-3 row">
                             <label class="col-md-4 col-form-label">Tag <span class="text-danger">*</span></label>
@@ -108,6 +112,24 @@
                 $('#table').DataTable({
                     processing: true,
                     serverSide: true,
+                    language: {
+                        "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                        "zeroRecords": "Data tidak ditemukan",
+                        "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Data tidak tersedia",
+                        "infoFiltered": "(difilter dari _MAX_ total data)",
+                        "search": "Cari:",
+                        "paginate": {
+                            "first": "Pertama",
+                            "last": "Terakhir",
+                            "next": "Selanjutnya",
+                            "previous": "Sebelumnya"
+                        },
+                        "aria": {
+                            "sortAscending": ": aktifkan untuk mengurutkan kolom ascending",
+                            "sortDescending": ": aktifkan untuk mengurutkan kolom descending"
+                        }
+                    },
                     ajax: "{{ route('admin.berita.berita.datatable') }}",
                     columns: [
                         { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'text-center' },
@@ -136,5 +158,25 @@
             });
         </script>
         
+    @endpush
+
+    @push('css')
+        <style>
+            .btn-secondary {
+                background-color: #34383a !important;
+            }
+
+            .btn-secondary:hover {
+                background-color: #37393a !important;
+            }
+
+            .btn-dark {
+                background-color: #111213 !important;
+            }
+
+            .btn-dark:hover {
+                background-color: #212325 !important;
+            }
+        </style>
     @endpush
 </x-app-layout>
