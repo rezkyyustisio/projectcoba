@@ -91,6 +91,7 @@ class BeritaController extends Controller
     public function store(BeritaRequest $request)
     {
         $datas = Arr::except($request->validated(), ['image','created_at']);
+        $datas['top'] = 1;
         $datas['slug'] = Str::slug($request->name);
         $datas['created_at'] = Carbon::parse($request->created_at);
         if($request->image){

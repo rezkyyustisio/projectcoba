@@ -105,6 +105,7 @@ class GenerateBeritaController extends Controller
             
             $ceking = Berita::where('id', $berita->id)->first();
             if($ceking == null){
+                $berita->created_at = $post->post_date;
                 $berita->save();
             }
         }

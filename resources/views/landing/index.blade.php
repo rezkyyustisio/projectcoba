@@ -9,7 +9,7 @@
                     </figure>
                     <hr>
                     <div class="wrapp__list__article-responsive wrapp__list__article-responsive-carousel">
-                        @foreach ($beritas->where('top',1) as $berita)
+                        @foreach ($beritas as $berita)
                             <div class="item">
                                 <div class="card__post card__post-list">
                                     <div class="image-sm">

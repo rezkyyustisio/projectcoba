@@ -12,34 +12,34 @@ class LandingPageController extends Controller
     public function beranda()
     {
         return view('landing.index',[
-            'beritas' => Berita::with('category','createdBy')->latest()->get(),
-            'bertasPaginates' => Berita::with('category','createdBy')->paginate(12),
+            'beritas' => Berita::with('category','createdBy')->orderByDesc('created_at')->get(),
+            'bertasPaginates' => Berita::with('category','createdBy')->orderByDesc('created_at')->paginate(12),
             'tags' => BeritaTag::orderBy('name')->get()
         ]);
     }
 
     public function category($slug){
         $data = BeritaCategory::with('beritas.createdBy')->where('slug', $slug)->firstOrFail();
-        $beritas = Berita::where('category_id',$data->id)->paginate(12);
+        $beritas = Berita::where('category_id',$data->id)->orderByDesc('created_at')->paginate(12);
         $tags = BeritaTag::orderBy('name')->get();
         return view('landing.category', compact('data','beritas','tags'));
     }
 
     public function tag(Request $request){
-        $beritas = Berita::where('tags', 'like', '%' . $request->tag . '%')->latest()->paginate(12);
+        $beritas = Berita::where('tags', 'like', '%' . $request->tag . '%')->orderByDesc('created_at')->paginate(12);
         $tags = BeritaTag::orderBy('name')->get();
         return view('landing.tag', compact('beritas','tags'));
     }
 
     public function search(Request $request){
-        $beritas = Berita::where('name', 'like', '%' . $request->s . '%')->latest()->paginate(12);
+        $beritas = Berita::where('name', 'like', '%' . $request->s . '%')->orderByDesc('created_at')->paginate(12);
         $tags = BeritaTag::orderBy('name')->get();
         return view('landing.search', compact('beritas','tags'));
     }
 
     public function detail($slug){
         $data = Berita::with('category')->where('slug',$slug)->firstOrFail();
-        $beritas = Berita::latest()->limit(3)->get();
+        $beritas = Berita::orderByDesc('created_at')->limit(3)->get();
         $tags = BeritaTag::orderBy('name')->get();
         return view('landing.detail', compact('data','beritas','tags'));
     }
