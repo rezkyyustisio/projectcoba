@@ -28,6 +28,7 @@
             <form id="form">
                 <div class="row">
                     <input type="hidden" id="id" name="id">
+                    <input type="hidden" id="foto_lama" name="foto_lama">
                     <x-input-form-component col="12" autocomplete="off" title="Judul Berita" id="name"/>
                     <x-input-form-component col="6" title="Kategori" type="drop-down" id="category_id" :options="$categories" />
                     {{-- <x-input-form-component col="6" title="Top" type="choose" id="top">

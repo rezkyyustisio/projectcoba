@@ -9,6 +9,7 @@
                         <li class="{{ request()->is('admin/berita/berita') ? 'mm-active' : '' }}"><a href="{{ route('admin.berita.berita.index') }}" key="t-berita">Berita</a></li>
                         <li class="{{ request()->is('admin/berita/category') ? 'mm-active' : '' }}"><a href="{{ route('admin.berita.category.index') }}" key="t-berita-category">Kategori</a></li>
                         <li class="{{ request()->is('admin/berita/tag') ? 'mm-active' : '' }}"><a href="{{ route('admin.berita.tag.index') }}" key="t-berita-tag">Tag</a></li>
+                        <li class="{{ request()->is('admin/berita/media') ? 'mm-active' : '' }}"><a href="{{ route('admin.berita.media.index') }}" key="t-berita-media">Media</a></li>
                     </ul>
                 </li>
                 <li class="{{ request()->is('admin/user') ? 'mm-active' : '' }}"><a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="bx bx-group"></i><span key="t-user">Pengguna</span></a></li>

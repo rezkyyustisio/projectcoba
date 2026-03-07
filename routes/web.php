@@ -52,6 +52,10 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin
     Route::post('setting/syarat-ketentuan', App\Http\Controllers\Admin\SettingController::class . '@syaratKetentuan')->name('setting.syarat-ketentuan');
     Route::post('setting/layanan', App\Http\Controllers\Admin\SettingController::class . '@layanan')->name('setting.layanan');
     Route::post('setting/kerja-sama', App\Http\Controllers\Admin\SettingController::class . '@kerjaSama')->name('setting.kerja-sama');
+
+    Route::get('/media', App\Http\Controllers\Admin\MediaController::class . '@index')->name('berita.media.index');
+    Route::get('/media/destroy/{id}', [App\Http\Controllers\Admin\MediaController::class, 'destroy'])->name('berita.menu.destroy');
+    Route::get('/media/datatable', App\Http\Controllers\Admin\MediaController::class . '@datatable')->name('berita.menu.datatable');
 });
 
 Route::middleware(['role:admin'])->group(function () {

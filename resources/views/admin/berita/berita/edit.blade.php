@@ -14,6 +14,7 @@
                 $('#highlight').val(data.data.highlight);
                 tinymce.get('description').setContent(data.data.description);
                 $('#created_at').val(data.created_at);
+                $('#foto_lama').val(data.data.image);
                 $('#tag-container').empty();
                 if (Array.isArray(data.tags) && data.tags.length > 0) {
                     data.tags.forEach(function(tag) {

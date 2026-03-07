@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Berita\BeritaRequest;
 use App\Models\Berita\Berita;
 use App\Models\Berita\BeritaCategory;
+use App\Models\Berita\Media;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -94,8 +95,21 @@ class BeritaController extends Controller
         $datas['top'] = 1;
         $datas['slug'] = Str::slug($request->name);
         $datas['created_at'] = Carbon::parse($request->created_at);
+        $foto_lama = $request->foto_lama;
         if($request->image){
             $datas['image'] = storeImage($request, 'image', 'Berita\Berita');
+
+
+            $media_lama = Media::where('file', $foto_lama)->first();
+            if($media_lama <> NULL){
+                Storage::disk('public')->delete($media_lama->file);
+                $media_lama->delete();
+            }
+
+            $media = new Media();
+            $media->file = $datas['image'];
+            $media->deskripsi = $request->name;
+            $media->save();
         }
 
         Berita::updateOrCreate([
@@ -123,7 +137,7 @@ class BeritaController extends Controller
     {
         $data = Berita::findOrFail($id);
         $data->delete();
-        Storage::disk('public')->delete($data->image);
+        // Storage::disk('public')->delete($data->image);
         return response()->json(['status' => true]);
     }
 }
