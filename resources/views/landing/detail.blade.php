@@ -67,7 +67,7 @@
                                 </div> --}}
 
 
-                                <ul class="list-inline">
+                                {{-- <ul class="list-inline">
                                     <span class="share">Begikan ke :</span>
                                     <li class="list-inline-item">
                                         <a class="btn btn-social-o facebook" href="#">
@@ -102,7 +102,7 @@
                                         </a>
                                     </li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                             {!! $data->description !!}
                         </div>
