@@ -47,6 +47,11 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin
     Route::post('setting/pedoman', App\Http\Controllers\Admin\SettingController::class . '@pedoman')->name('setting.pedoman');
     Route::post('setting/disclaimer', App\Http\Controllers\Admin\SettingController::class . '@disclaimer')->name('setting.disclaimer');
     Route::post('setting/google-ads', App\Http\Controllers\Admin\SettingController::class . '@googleAds')->name('setting.google-ads');
+
+    Route::post('setting/tentang-kami', App\Http\Controllers\Admin\SettingController::class . '@tentangKami')->name('setting.tentang-kami');
+    Route::post('setting/syarat-ketentuan', App\Http\Controllers\Admin\SettingController::class . '@syaratKetentuan')->name('setting.syarat-ketentuan');
+    Route::post('setting/layanan', App\Http\Controllers\Admin\SettingController::class . '@layanan')->name('setting.layanan');
+    Route::post('setting/kerja-sama', App\Http\Controllers\Admin\SettingController::class . '@kerjaSama')->name('setting.kerja-sama');
 });
 
 Route::middleware(['role:admin'])->group(function () {

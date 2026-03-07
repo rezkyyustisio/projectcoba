@@ -225,4 +225,92 @@ class SettingController extends Controller
 
         return back()->with('success', 'Disclaimer Settings Updated');
     }
+
+    public function tentangKami(Request $request)
+    {
+        $validatedData = $request->validate([
+            'tentang_kami'   => ['required', 'max:50000'],
+        ]);
+
+        $datas = $validatedData;
+
+        $datas = array_filter($datas, function ($value) {
+            return !is_null($value);
+        });
+
+        foreach ($datas as $key => $value) {
+           Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        return back()->with('success', 'Tentang Kami Settings Updated');
+    }
+
+    public function syaratKetentuan(Request $request)
+    {
+        $validatedData = $request->validate([
+            'syarat_ketentuan'   => ['required', 'max:50000'],
+        ]);
+
+        $datas = $validatedData;
+
+        $datas = array_filter($datas, function ($value) {
+            return !is_null($value);
+        });
+
+        foreach ($datas as $key => $value) {
+           Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        return back()->with('success', 'Syarat dan Ketentuan Settings Updated');
+    }
+
+    public function layanan(Request $request)
+    {
+        $validatedData = $request->validate([
+            'layanan'   => ['required', 'max:50000'],
+        ]);
+
+        $datas = $validatedData;
+
+        $datas = array_filter($datas, function ($value) {
+            return !is_null($value);
+        });
+
+        foreach ($datas as $key => $value) {
+           Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        return back()->with('success', 'Layanan Settings Updated');
+    }
+
+    public function kerjaSama(Request $request)
+    {
+        $validatedData = $request->validate([
+            'kerja_sama'   => ['required', 'max:50000'],
+        ]);
+
+        $datas = $validatedData;
+
+        $datas = array_filter($datas, function ($value) {
+            return !is_null($value);
+        });
+
+        foreach ($datas as $key => $value) {
+           Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        return back()->with('success', 'Kerja Sama Settings Updated');
+    }
 }

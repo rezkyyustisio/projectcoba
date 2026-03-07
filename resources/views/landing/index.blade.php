@@ -178,23 +178,54 @@
                 <div class="pagination-area">
                 <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"
                     style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                    
+                    {{-- Tombol Previous --}}
                     @if ($bertasPaginates->onFirstPage())
-                        <a href="#">«</a>
+                        <a href="#" class="disabled">«</a>
                     @else
                         <a href="{{ $bertasPaginates->previousPageUrl() }}">«</a>
                     @endif
-                    @for ($i = 1; $i <= $bertasPaginates->lastPage(); $i++)
-                        @if ($bertasPaginates->currentPage() == $i)
-                            <a class="active" href="#">{{ $i }}</a>
-                        @else
-                            <a href="{{ $bertasPaginates->url($i) }}">{{ $i }}</a>
-                        @endif
-                    @endfor
 
+                    {{-- Halaman Pertama --}}
+                    @if($bertasPaginates->currentPage() > 2)
+                        <a href="{{ $bertasPaginates->url(1) }}">1</a>
+                        @if($bertasPaginates->currentPage() > 3)
+                            <span class="pagination-dots"></span>
+                        @endif
+                    @endif
+
+                    {{-- Halaman Sebelumnya (jika ada) --}}
+                    @if($bertasPaginates->currentPage() > 1)
+                        <a href="{{ $bertasPaginates->url($bertasPaginates->currentPage() - 1) }}">
+                            {{ $bertasPaginates->currentPage() - 1 }}
+                        </a>
+                    @endif
+
+                    {{-- Halaman Aktif --}}
+                    <a class="active" href="#">{{ $bertasPaginates->currentPage() }}</a>
+
+                    {{-- Halaman Berikutnya (jika ada) --}}
+                    @if($bertasPaginates->currentPage() < $bertasPaginates->lastPage())
+                        <a href="{{ $bertasPaginates->url($bertasPaginates->currentPage() + 1) }}">
+                            {{ $bertasPaginates->currentPage() + 1 }}
+                        </a>
+                    @endif
+
+                    {{-- Halaman Terakhir --}}
+                    @if($bertasPaginates->currentPage() < $bertasPaginates->lastPage() - 1)
+                        @if($bertasPaginates->currentPage() < $bertasPaginates->lastPage() - 2)
+                            <span class="pagination-dots"></span>
+                        @endif
+                        <a href="{{ $bertasPaginates->url($bertasPaginates->lastPage()) }}">
+                            {{ $bertasPaginates->lastPage() }}
+                        </a>
+                    @endif
+
+                    {{-- Tombol Next --}}
                     @if ($bertasPaginates->hasMorePages())
                         <a href="{{ $bertasPaginates->nextPageUrl() }}">»</a>
                     @else
-                        <a href="#">»</a>
+                        <a href="#" class="disabled">»</a>
                     @endif
                 </div>
             </div>
