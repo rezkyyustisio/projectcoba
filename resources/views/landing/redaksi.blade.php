@@ -28,7 +28,7 @@
                             <aside class="wrapper__list__article ">
                                 <h4 class="border_section">{{ $category->name }}</h4>
                                 <div class="wrapper__list__article-small">
-                                    @foreach ($category->beritas as $berita)
+                                    @foreach ($category->beritas->take(5) as $berita)
                                         <div class="mb-3">
                                             <div class="card__post card__post-list">
                                                 <div class="image-sm">
@@ -70,7 +70,7 @@
                             </aside>
                         @endforeach
 
-                        <aside class="wrapper__list__article">
+                        {{-- <aside class="wrapper__list__article">
                             <h4 class="border_section">tags</h4>
                             <div class="blog-tags p-0">
                                 <ul class="list-inline">
@@ -79,7 +79,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        </aside>
+                        </aside> --}}
                     </div>
                 </div>
             </div>
