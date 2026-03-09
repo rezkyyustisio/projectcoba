@@ -119,8 +119,8 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="wrap__profile">
-                        <div class="wrap__profile-author">
+                    <div class="wrap__profile" style="border: 0 !important;">
+                        <div class="wrap__profile-author"> 
                             {{-- <figure>
                                 <img src="{{ asset('storage/'.$data->createdBy->image) }}" alt="{{ $data->createdBy->name }}" class="img-fluid rounded-circle">
                             </figure> --}}

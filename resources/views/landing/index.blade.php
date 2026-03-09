@@ -25,20 +25,26 @@
                                              alt="{{ $berita->name }}"
                                              style="height: 500px; object-fit: cover;">
                                     </a>
-                                    {{-- Caption untuk semua device --}}
-                                    <div class="carousel-caption d-block bg-dark bg-opacity-50 p-2 p-md-3 rounded">
-                                        <h5 class="text-white h6 h4-md">{{ $berita->name }}</h5>
-                                        <p class="text-white mb-0 small">
+                                    {{-- Caption dengan background gradasi hitam yang lebih tinggi --}}
+                                    <div class="carousel-caption d-block p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 70%, transparent 100%); bottom: 0; left: 0; right: 0; width: 100%; text-align: left; border: none; padding-top: 60px !important;">
+                                        <h5 class="text-white" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-weight: bold; font-size: 1.8rem; margin-bottom: 10px;">{{ $berita->name }}</h5>
+                                        <p class="text-white mb-0" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.9); font-size: 1.1rem;">
                                             <i class="fas fa-calendar-alt"></i> 
                                             {{ Carbon\Carbon::parse($berita->created_at)->locale('id')->isoFormat('D MMM YYYY') }}
-                                            <span class="d-inline d-md-none"> | </span>
-                                            <br class="d-md-none">
+                                            <span class="mx-2">•</span>
                                             <i class="fas fa-user"></i> {{ $berita->createdBy->name }}
                                         </p>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
+                        
+                        <!-- Indicators -->
+                        {{-- <ol class="carousel-indicators">
+                            @foreach($slideshowBeritas as $key => $berita)
+                                <li data-target="#slideshowBeritaPertama" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
+                            @endforeach
+                        </ol> --}}
                         
                         <!-- Controls -->
                         <a class="carousel-control-prev" href="#slideshowBeritaPertama" role="button" data-slide="prev">
@@ -289,28 +295,67 @@
                 
                 // Auto play slideshow
                 $('#slideshowBeritaPertama').carousel({
-                    interval: 5000, // Ganti slide setiap 5 detik
+                    interval: 5000,
                     pause: 'hover'
                 });
             });
         </script>
         
-        <!-- CSS untuk responsive caption -->
         <style>
+            /* Style untuk caption dengan background gradasi yang lebih tinggi */
+            /* SUPER GELAP - Hitam pekat dengan gradasi halus */
             .carousel-caption {
-                background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+                background: linear-gradient(to top, 
+                    rgba(0,0,0,0.9) 0%,     /* bawah lebih gelap */
+                    rgba(0,0,0,0.7) 40%,    /* tengah gelap */
+                    rgba(0,0,0,0.4) 80%,    /* atas mulai transparan */
+                    transparent 100%
+                ) !important;
+                bottom: 0;
                 left: 0;
                 right: 0;
-                bottom: 0;
-                padding: 20px 15px;
-                text-align: left;
                 width: 100%;
+                padding: 40px 30px 25px 30px !important;
+                text-align: left;
+                border: none;
+            }
+
+            /* Text shadow minimalis */
+            .carousel-caption h5 {
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .carousel-caption p {
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                font-size: 0.95rem;
             }
             
-            /* Style untuk mobile */
+            /* Indicators styling */
+            .carousel-indicators {
+                bottom: 15px;
+                z-index: 15;
+            }
+            
+            .carousel-indicators li {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                margin: 0 6px;
+                background-color: rgba(255,255,255,0.7);
+                border: 1px solid rgba(0,0,0,0.2);
+            }
+            
+            .carousel-indicators .active {
+                background-color: #fff;
+                transform: scale(1.2);
+            }
+            
+            /* Mobile styles - area gelap lebih tinggi di mobile juga */
             @media (max-width: 767px) {
                 .carousel-item {
-                    height: 300px; /* Ukuran lebih kecil di mobile */
+                    height: 300px;
                 }
                 
                 .carousel-item img {
@@ -318,46 +363,37 @@
                 }
                 
                 .carousel-caption {
-                    padding: 15px 12px;
-                    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 70%, transparent 100%);
+                    padding: 50px 15px 15px 15px !important;
+                    background: linear-gradient(to top, 
+                        rgba(0,0,0,0.8) 0%, 
+                        rgba(0,0,0,0.7) 30%, 
+                        rgba(0,0,0,0.4) 60%, 
+                        rgba(0,0,0,0.2) 80%, 
+                        transparent 100%);
                 }
                 
                 .carousel-caption h5 {
-                    font-size: 16px !important;
-                    margin-bottom: 5px;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    font-size: 1.1rem !important;
+                    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
                 }
                 
                 .carousel-caption p {
-                    font-size: 12px !important;
+                    font-size: 0.8rem !important;
+                    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
                 }
                 
-                .carousel-caption p i {
-                    margin-right: 3px;
-                }
-                
-                .carousel-indicators {
-                    margin-bottom: 10px;
+                .carousel-caption p .mx-2 {
+                    margin: 0 3px;
                 }
                 
                 .carousel-indicators li {
                     width: 8px;
                     height: 8px;
-                }
-                
-                /* Tombol navigasi lebih kecil di mobile */
-                .carousel-control-prev-icon,
-                .carousel-control-next-icon {
-                    width: 20px;
-                    height: 20px;
+                    margin: 0 4px;
                 }
             }
             
-            /* Untuk tablet */
+            /* Tablet styles */
             @media (min-width: 768px) and (max-width: 991px) {
                 .carousel-item {
                     height: 400px;
@@ -367,57 +403,27 @@
                     height: 400px !important;
                 }
                 
+                .carousel-caption {
+                    padding: 60px 20px 20px 20px !important;
+                }
+                
                 .carousel-caption h5 {
-                    font-size: 20px;
+                    font-size: 1.4rem;
+                }
+                
+                .carousel-caption p {
+                    font-size: 0.95rem;
                 }
             }
             
-            .carousel-caption h5 {
-                font-weight: bold;
-                margin-bottom: 8px;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            }
-            
-            .carousel-caption p {
-                font-size: 14px;
-                opacity: 0.95;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            }
-            
-            .carousel-caption p i {
-                margin-right: 5px;
-                opacity: 0.9;
-            }
-            
-            .bg-opacity-50 {
-                background: rgba(0,0,0,0.6);
-                border-radius: 0 !important;
-            }
-            
-            .carousel-indicators {
-                margin-bottom: 15px;
-            }
-            
-            .carousel-indicators li {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                margin: 0 5px;
-                background-color: rgba(255,255,255,0.5);
-            }
-            
-            .carousel-indicators .active {
-                background-color: #fff;
-            }
-            
-            /* Utility classes */
-            .h6 {
-                font-size: 1rem;
-            }
-            
-            @media (min-width: 768px) {
-                .h4-md {
-                    font-size: 1.5rem;
+            /* Desktop besar */
+            @media (min-width: 1200px) {
+                .carousel-caption {
+                    padding: 100px 40px 40px 40px !important;
+                }
+                
+                .carousel-caption h5 {
+                    font-size: 2rem;
                 }
             }
         </style>
