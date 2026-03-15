@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AlurKeuanganController;
 use App\Http\Controllers\Admin\GenerateBeritaController;
 use App\Http\Controllers\Admin\HutangPiutangController;
+use App\Http\Controllers\Admin\FakturController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +68,10 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['role:admin'], 'as' => 'admin
         Route::resource('hutang-piutang', HutangPiutangController::class)->only(['index', 'store', 'edit', 'destroy']);
         Route::get('hutang-piutang/datatable', [HutangPiutangController::class, 'datatable'])->name('hutang-piutang.datatable');
         Route::post('hutang-piutang/{id}/update-status', [HutangPiutangController::class, 'updateStatus'])->name('hutang-piutang.update-status');
+
+        // Faktur
+        Route::resource('faktur', FakturController::class)->only(['index', 'store', 'edit', 'destroy']);
+        Route::get('faktur/datatable', [FakturController::class, 'datatable'])->name('faktur.datatable');
     });
 });
 

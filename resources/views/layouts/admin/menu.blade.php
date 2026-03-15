@@ -14,6 +14,7 @@
                 </li>
                 <li class="{{ request()->is('admin/alur-keuangan' ? 'mm-active' : '') }}"><a href="{{ route('admin.keuangan.alur-keuangan.index') }}" class="waves-effect"><i class="bx bx-money"></i><span key="t-user">Alur Keuangan</span></a></li>
                 <li class="{{ request()->is('admin/keuangan/hutang-piutang') ? 'mm-active' : '' }}"><a href="{{ route('admin.keuangan.hutang-piutang.index') }}" class="waves-effect"><i class="bx bx-file"></i><span key="t-hutang-piutang">Hutang & Piutang</span></a></li>
+                <li class="{{ request()->is('admin/keuangan/hutang-piutang/faktur') ? 'mm-active' : '' }}"><a href="{{ route('admin.keuangan.faktur.index') }}" class="waves-effect"><i class="bx bx-file"></i><span key="t-hutang-piutang-faktur">Faktur</span></a></li>
                 <li class="{{ request()->is('admin/user') ? 'mm-active' : '' }}"><a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="bx bx-group"></i><span key="t-user">Pengguna</span></a></li>
                 <li class="{{ request()->is('admin/setting') ? 'mm-active' : '' }}"><a href="{{ route('admin.setting.index') }}" class="waves-effect"><i class="bx bx-cog"></i><span key="t-setting-apps">Pengaturan</span></a></li>
             </ul>
